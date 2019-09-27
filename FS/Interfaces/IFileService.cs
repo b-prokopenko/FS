@@ -1,4 +1,4 @@
-﻿namespace FS.Interfaces
+﻿namespace FSCoreLibrary.Interfaces
 {
     public interface IFileService
     {

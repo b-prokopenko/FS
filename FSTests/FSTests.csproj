@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FS\FS.csproj">
+    <ProjectReference Include="..\FS\FSCoreLibrary.csproj">
       <Project>{8D1FD7C0-F03A-4F32-BCDD-9905FFD8FBCC}</Project>
-      <Name>FS</Name>
+      <Name>FSCoreLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

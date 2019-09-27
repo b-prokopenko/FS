@@ -1,7 +1,7 @@
-﻿using FS.Interfaces;
-using FS.Services;
+﻿using FSCoreLibrary.Interfaces;
+using FSCoreLibrary.Services;
 
-namespace FS
+namespace FSCoreLibrary
 {
     public static class FSCore
     {

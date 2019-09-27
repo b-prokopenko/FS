@@ -1,7 +1,7 @@
-﻿using FS.Interfaces;
+﻿using FSCoreLibrary.Interfaces;
 using System.IO;
 
-namespace FS.Services
+namespace FSCoreLibrary.Services
 {
     class FileService : IFileService
     {

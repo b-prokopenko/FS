@@ -1,6 +1,6 @@
 ﻿using System.IO;
-using FS;
-using FS.Interfaces;
+using FSCoreLibrary;
+using FSCoreLibrary.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FSTests.Services
