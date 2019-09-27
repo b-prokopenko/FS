@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1EADF8F7-38C5-4011-AF2D-5473AB045ED6}</ProjectGuid>
+    <ProjectGuid>{276CF6C7-5A9C-45FA-B052-18A5CC5B69E9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FSTests</RootNamespace>
-    <AssemblyName>FSTests</AssemblyName>
+    <RootNamespace>FSCoreLibraryTest</RootNamespace>
+    <AssemblyName>FSCoreLibraryTest</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,8 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\PropertyServiceTest.cs" />
     <Compile Include="Services\FileServiceTest.cs" />
+    <Compile Include="Services\PropertyServiceTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -60,6 +60,12 @@
     <Content Include="files\testfile.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSCoreLibrary\FSCoreLibrary.csproj">
+      <Project>{4AA79785-97DE-4DBA-88F3-AE864FB688E7}</Project>
+      <Name>FSCoreLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

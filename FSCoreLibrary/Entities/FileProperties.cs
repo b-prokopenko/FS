@@ -1,7 +1,7 @@
-﻿using FS.Interfaces;
+﻿using FSCoreLibrary.Interfaces;
 using System;
 
-namespace FS.Entities
+namespace FSCoreLibrary.Entities
 {
     public class FileProperties : IFileProperties
     {

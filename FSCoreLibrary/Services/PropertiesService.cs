@@ -1,8 +1,8 @@
-﻿using FS.Entities;
-using FS.Interfaces;
+﻿using FSCoreLibrary.Entities;
+using FSCoreLibrary.Interfaces;
 using System.IO;
 
-namespace FS.Services
+namespace FSCoreLibrary.Services
 {
     class PropertiesService : IPropertyService
     {

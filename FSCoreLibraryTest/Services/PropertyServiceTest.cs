@@ -1,14 +1,15 @@
-﻿using System.IO;
-using FS;
-using FS.Interfaces;
+﻿using System;
+using System.IO;
+using FSCoreLibrary;
+using FSCoreLibrary.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FSTests.Services
+namespace FSCoreLibraryTest.Services
 {
     [TestClass]
     public class PropertyServiceTest
     {
-        IPropertyService service = FSCore.PropertyService; 
+        IPropertyService service = FSCore.PropertyService;
         [TestMethod]
         public void ShouldReturnFileProperties()
         {
