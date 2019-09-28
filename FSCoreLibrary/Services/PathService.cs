@@ -3,7 +3,7 @@ using System.IO;
 
 namespace FSCoreLibrary.Services
 {
-    class FileService : IFileService
+    class PathService : IPathService
     {
         public string BuildPath(IFileProperties fileProperties)
         {

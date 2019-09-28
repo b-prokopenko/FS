@@ -9,7 +9,7 @@ namespace FSCoreLibraryTest.Services
     [TestClass]
     public class FileServiceTest
     {
-        IFileService service = FSCore.FileService;
+        IPathService service = FSCore.PathService;
         IPropertyService properties = FSCore.PropertyService;
         [TestMethod]
         public void ShouldBuildPathFromProperties()

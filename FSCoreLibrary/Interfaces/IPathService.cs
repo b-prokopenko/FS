@@ -1,6 +1,6 @@
 ﻿namespace FSCoreLibrary.Interfaces
 {
-    public interface IFileService
+    public interface IPathService
     {
         string BuildPath(IFileProperties fileProperties);
     }

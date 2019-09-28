@@ -1,22 +1,17 @@
-﻿using FSCoreLibrary.Interfaces;
+﻿using System;
 using FSCoreLibrary.Services;
+using FSCoreLibrary.Interfaces;
 
 namespace FSCoreLibrary
 {
     public static class FSCore
     {
-        public static IPropertyService PropertyService { get => GetPropertyService(); }
-        public static IFileService FileService { get => GetFileService(); }
+        public static IPropertyService PropertyService { get => GetService<PropertyService>(); }
+        public static IPathService PathService { get => GetService<PathService>(); }
 
-        private static IFileService GetFileService()
+        private static T GetService<T>()
         {
-            return new FileService();
+            return (T)Activator.CreateInstance(typeof(T));
         }
-
-        private static IPropertyService GetPropertyService()
-        {
-            return new PropertiesService();
-        }
-
     }
 }

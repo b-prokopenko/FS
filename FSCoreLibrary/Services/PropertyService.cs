@@ -4,7 +4,7 @@ using System.IO;
 
 namespace FSCoreLibrary.Services
 {
-    class PropertiesService : IPropertyService
+    class PropertyService : IPropertyService
     {
         public IFileProperties GetFileProperties(string filePath)
         {
