@@ -1,19 +1,19 @@
 ﻿using FSCoreLibrary.Interfaces;
+using System;
 using System.IO;
 
 namespace FSCoreLibrary.Services
 {
     class PathService : IPathService
     {
-        public string BuildPath(IFileProperties fileProperties)
+        public string BuildPath(string sourceFilePath, string targetFolder)
         {
-            string newPath;
-            string[] folders = fileProperties.CreationDate.ToString("yyyy.MM.dd").Split('.');
-            string datePart = Path.Combine(folders);
-            string extensionPart = fileProperties.Extension.Remove(0, 1);
-            string name = fileProperties.Name;
-            newPath = Path.Combine(datePart, extensionPart, $"{name}.{extensionPart}");
-            return newPath;
+            string name = Path.GetFileName(sourceFilePath);
+            string extension = Path.GetExtension(sourceFilePath).Remove(0, 1);
+            DateTime creationDate = File.GetCreationTime(sourceFilePath);
+            string[] subFoldersArray = creationDate.ToString("yyyy.MM.dd").Split('.');
+            string subFolders = Path.Combine(subFoldersArray);
+            return Path.Combine(targetFolder, subFolders, extension, name);
         }
     }
 }

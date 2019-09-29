@@ -14,9 +14,10 @@ namespace FSCoreLibraryTest.Services
         [TestMethod]
         public void ShouldBuildPathFromProperties()
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "test", "testfile.txt");
-            string newPath = service.BuildPath(properties.GetFileProperties(path));
-            string expectedPath = "1601\\01\\01\\txt\\testfile.txt";
+            string pathToFile = Path.Combine(Directory.GetCurrentDirectory(), "test", "testfile.txt");
+            string targetFolder = Path.Combine(Directory.GetCurrentDirectory(), "target");
+            string newPath = service.BuildPath(pathToFile, targetFolder);
+            string expectedPath = $"{targetFolder}\\1601\\01\\01\\txt\\testfile.txt";
             Assert.AreEqual(expectedPath, newPath);
         }
     }
