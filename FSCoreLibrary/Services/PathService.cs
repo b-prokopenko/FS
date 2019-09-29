@@ -6,14 +6,14 @@ namespace FSCoreLibrary.Services
 {
     class PathService : IPathService
     {
-        public string BuildPath(string source, string target)
+        public string BuildPath(string targetFolder, string file)
         {
-            string name = Path.GetFileName(source);
-            string extension = Path.GetExtension(source).Remove(0, 1);
-            DateTime date = File.GetCreationTime(source);
-            string[] subFoldersArray = date.ToString("yyyy.MM.dd").Split('.');
+            string fileName = Path.GetFileName(file);
+            string fileExtension = Path.GetExtension(file).Remove(0, 1);
+            DateTime creationDate = File.GetCreationTime(file);
+            string[] subFoldersArray = creationDate.ToString("yyyy.MM.dd").Split('.');
             string subFolders = Path.Combine(subFoldersArray);
-            return Path.Combine(target, subFolders, extension, name);
+            return Path.Combine(targetFolder, subFolders, fileExtension, fileName);
         }
     }
 }

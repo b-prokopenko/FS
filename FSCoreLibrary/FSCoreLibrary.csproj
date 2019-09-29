@@ -41,16 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\FileProperties.cs" />
     <Compile Include="FSCore.cs" />
-    <Compile Include="Interfaces\IFileProperties.cs" />
-    <Compile Include="Interfaces\IFileService.cs" />
     <Compile Include="Interfaces\IPathService.cs" />
-    <Compile Include="Interfaces\IPropertyService.cs" />
+    <Compile Include="Interfaces\IFileService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\FileService.cs" />
     <Compile Include="Services\PathService.cs" />
-    <Compile Include="Services\PropertyService.cs" />
+    <Compile Include="Services\FileService.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

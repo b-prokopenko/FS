@@ -10,13 +10,13 @@ namespace FSCoreLibraryTest.Services
     public class PathServiceTest
     {
         IPathService service = FSCore.PathService;
-        IPropertyService properties = FSCore.PropertyService;
+        IFileService properties = FSCore.FileService;
         [TestMethod]
         public void ShouldBuildPathFromProperties()
         {
             string pathToFile = Path.Combine(Directory.GetCurrentDirectory(), "test", "testfile.txt");
             string targetFolder = Path.Combine(Directory.GetCurrentDirectory(), "target");
-            string newPath = service.BuildPath(pathToFile, targetFolder);
+            string newPath = service.BuildPath(targetFolder, pathToFile);
             string expectedPath = $"{targetFolder}\\1601\\01\\01\\txt\\testfile.txt";
             Assert.AreEqual(expectedPath, newPath);
         }

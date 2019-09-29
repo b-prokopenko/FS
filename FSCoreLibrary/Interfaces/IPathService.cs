@@ -2,6 +2,6 @@
 {
     public interface IPathService
     {
-        string BuildPath(string sourceFilePath, string targetFolder);
+        string BuildPath(string targetFolder, string file);
     }
 }

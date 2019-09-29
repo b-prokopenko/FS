@@ -1,25 +1,30 @@
 ﻿using System;
 using FSCoreLibrary.Services;
 using FSCoreLibrary.Interfaces;
+using System.IO;
 
 namespace FSCoreLibrary
 {
     public static class FSCore
     {
-        public static IPropertyService PropertyService { get => GetInstanceOf<PropertyService>(); }
-        public static IPathService PathService { get => GetInstanceOf<PathService>(); }
         public static IFileService FileService { get => GetInstanceOf<FileService>(); }
+        public static IPathService PathService { get => GetInstanceOf<PathService>(); }
 
         private static T GetInstanceOf<T>()
         {
             return (T)Activator.CreateInstance(typeof(T));
         }
 
-        public static void Sort(string source, string target)
+        public static void Sort(string sourceFolder, string targetFolder)
         {
-            
-            PropertyService.GetFilesProperties(source);
-            throw new NotImplementedException();
+            string[] sourceFiles = Directory.GetFiles(sourceFolder, "*", SearchOption.AllDirectories);
+            string[] targetFiles = new string[sourceFiles.Length];
+
+            for (int i = 0; i < sourceFiles.Length; i++)
+            {
+                targetFiles[i] = PathService.BuildPath(targetFolder, sourceFiles[i]);
+                FileService.Copy(sourceFiles[i], targetFiles[i]);
+            }
         }
     }
 }
