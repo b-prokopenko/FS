@@ -2,6 +2,6 @@
 {
     public interface IPropertyService
     {
-        IFileProperties GetFileProperties(string filePath);
+        IFileProperties[] GetFilesProperties(string source);
     }
 }

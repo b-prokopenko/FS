@@ -9,5 +9,6 @@ namespace FSCoreLibrary.Interfaces
         string Folder { get; set; }
         string Extension { get; set; }
         DateTime CreationDate { get; set; }
+        string CopyTo { get; set; }
     }
 }

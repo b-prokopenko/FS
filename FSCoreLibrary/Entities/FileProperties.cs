@@ -10,5 +10,6 @@ namespace FSCoreLibrary.Entities
         public string Folder { get; set; }
         public string Extension { get; set; }
         public DateTime CreationDate { get; set; }
+        public string CopyTo { get; set; }
     }
 }
