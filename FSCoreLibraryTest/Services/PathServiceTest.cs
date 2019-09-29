@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace FSCoreLibraryTest.Services
 {
     [TestClass]
-    public class FileServiceTest
+    public class PathServiceTest
     {
         IPathService service = FSCore.PathService;
         IPropertyService properties = FSCore.PropertyService;
