@@ -14,9 +14,8 @@ namespace FSCoreLibraryTest.Services
         [TestMethod]
         public void ShouldCopyFileToTargetFolder()
         {
-            string fileName = "testfile.txt";
-            string targetFile = Path.Combine(DataService.TestFolder, "targets", fileName);
-            string sourceFile = DataService.PrepareTestFile(fileName);
+            string sourceFile = DataService.TestData.TestFile;
+            string targetFile = Path.Combine(DataService.TestData.WorkingFolder, "targets", DataService.TestData.TestFileName);
             service.Copy(sourceFile, targetFile);
             bool expectedFolder = Directory.Exists(Path.GetDirectoryName(targetFile));
             Assert.IsTrue(expectedFolder);
@@ -26,8 +25,8 @@ namespace FSCoreLibraryTest.Services
         [TestMethod]
         public void ShouldRenameFileIfExists()
         {
-            string[] testFiles = DataService.PrepareTestFiles();
-            string targetFolder = Path.Combine(DataService.TestFolder, "targets");
+            string[] testFiles = DataService.TestData.FilesInSourceFolder;
+            string targetFolder = Path.Combine(DataService.TestData.WorkingFolder, "targets");
             foreach (string file in testFiles)
             {
                 var targetFileName = Path.GetFileName(file);
