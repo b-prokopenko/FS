@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSCoreLibraryTest", "FSCore
 		{4AA79785-97DE-4DBA-88F3-AE864FB688E7} = {4AA79785-97DE-4DBA-88F3-AE864FB688E7}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSWFGui", "FSWFGui\FSWFGui.csproj", "{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSGuiTests", "FSGuiTests\FSGuiTests.csproj", "{A3EFF091-099C-48EA-9132-661322B0848B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,14 @@ Global
 		{276CF6C7-5A9C-45FA-B052-18A5CC5B69E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{276CF6C7-5A9C-45FA-B052-18A5CC5B69E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{276CF6C7-5A9C-45FA-B052-18A5CC5B69E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3EFF091-099C-48EA-9132-661322B0848B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3EFF091-099C-48EA-9132-661322B0848B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3EFF091-099C-48EA-9132-661322B0848B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3EFF091-099C-48EA-9132-661322B0848B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
