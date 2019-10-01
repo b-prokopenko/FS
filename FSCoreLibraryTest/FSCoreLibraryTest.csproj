@@ -52,6 +52,9 @@
     <Compile Include="DataService.cs" />
     <Compile Include="Data\TestData.cs" />
     <Compile Include="Interfaces\ITestData.cs" />
+    <Compile Include="Mocks\FileServiceMock.cs" />
+    <Compile Include="Mocks\PathServiceMock.cs" />
+    <Compile Include="Mocks\SortServiceMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PathServiceTest.cs" />
     <Compile Include="Services\FileServiceTest.cs" />

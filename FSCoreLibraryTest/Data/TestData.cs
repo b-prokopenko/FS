@@ -1,10 +1,18 @@
-﻿using FSCoreLibraryTest.Interfaces;
+﻿using FSCoreLibrary.Interfaces;
+using FSCoreLibraryTest.Interfaces;
+using FSCoreLibraryTest.Mocks;
+using System;
 using System.IO;
 
 namespace FSCoreLibraryTest.Data
 {
     struct TestData : ITestData
     {
+        public IFileService FileServiceMock => GetInstanceOf<FileServiceMock>();
+
+        public ISortService SortServiceMock => GetInstanceOf<SortServiceMock>();
+
+        public IPathService PathServiceMock => GetInstanceOf<PathServiceMock>();
         private string _workingPath { get => Path.Combine(Directory.GetCurrentDirectory(), "TestFolder"); }
         public string WorkingFolder { get => GetWorkingFolder(); }
         public string SourcesFolder { get => CreateSourcesFolder(); }
@@ -77,5 +85,12 @@ namespace FSCoreLibraryTest.Data
             }
             return Directory.GetFiles(SourcesFolder, "*", SearchOption.AllDirectories);
         }
+
+        private T GetInstanceOf<T>()
+        {
+            return (T)Activator.CreateInstance(typeof(T));
+        }
+
+        
     }
 }

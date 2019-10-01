@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using FSCoreLibrary;
+﻿using System.IO;
 using FSCoreLibrary.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,8 +7,8 @@ namespace FSCoreLibraryTest.Services
     [TestClass]
     public class PathServiceTest
     {
-        IPathService service = FSCore.PathService;
-        IFileService properties = FSCore.FileService;
+        IPathService service = DataService.TestData.PathServiceMock;
+        IFileService properties = DataService.TestData.FileServiceMock;
         [TestMethod]
         public void ShouldBuildPathFromProperties()
         {

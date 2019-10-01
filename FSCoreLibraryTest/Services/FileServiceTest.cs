@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using FSCoreLibrary;
+﻿using System.IO;
 using FSCoreLibrary.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -9,7 +7,7 @@ namespace FSCoreLibraryTest.Services
     [TestClass]
     public class FileServiceTest
     {
-        IFileService service = FSCore.FileService;
+        IFileService service = DataService.TestData.FileServiceMock;
 
         [TestMethod]
         public void ShouldCopyFileToTargetFolder()

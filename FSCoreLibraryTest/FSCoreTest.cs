@@ -14,7 +14,7 @@ namespace FSCoreLibraryTest
             var sourceFolder = data.SourcesFolder;
             var files = data.FilesInSourceFolder;
             var targetFolder = Path.Combine(data.WorkingFolder, "targets");
-            FSCoreLibrary.FSCore.Sort(sourceFolder, targetFolder);
+            FSCoreLibrary.FSCore.Service.Sort(sourceFolder, targetFolder);
             var sortedFiles = Directory.GetFiles(targetFolder, "*", SearchOption.AllDirectories);
             foreach (var file in sortedFiles)
             {
@@ -35,10 +35,10 @@ namespace FSCoreLibraryTest
             var files = data.FilesInSourceFolder;
             var targetFolder = Path.Combine(data.WorkingFolder, "targets");
 
-            FSCoreLibrary.FSCore.Sort(sourceFolder, targetFolder);
+            FSCoreLibrary.FSCore.Service.Sort(sourceFolder, targetFolder);
 
-            var actualTotal = FSCoreLibrary.FSCore.Total;
-            var actualReady = FSCoreLibrary.FSCore.Ready;
+            var actualTotal = FSCoreLibrary.FSCore.Progress.Total;
+            var actualReady = FSCoreLibrary.FSCore.Progress.Ready;
             Assert.AreEqual(files.Length, actualTotal);
             Assert.AreEqual(files.Length, actualReady);
             Assert.AreEqual(actualTotal, actualReady);
