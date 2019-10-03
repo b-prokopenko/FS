@@ -9,9 +9,15 @@ namespace FSCoreLibraryTest.Mocks
 {
     class SortServiceMock : ISortService
     {
-        public void Sort(string sourceFolder, string targetFolder)
+       
+
+        public void Sort(ISortParams sortParams)
         {
             throw new NotImplementedException();
         }
+
+        public int Total => throw new NotImplementedException();
+
+        public int Ready => throw new NotImplementedException();
     }
 }

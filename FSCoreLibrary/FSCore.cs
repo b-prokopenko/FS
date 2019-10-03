@@ -6,6 +6,5 @@ namespace FSCoreLibrary
     public static class FSCore
     {
         public static ISortService Service { get => new SortService(); }
-        public static IProgress Progress => (IProgress)Service;
     }
 }

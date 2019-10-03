@@ -11,7 +11,7 @@ namespace FSCoreLibrary.Services
             string fileName = Path.GetFileName(file);
             string fileExtension = Path.GetExtension(file).Remove(0, 1);
             DateTime creationDate = File.GetCreationTime(file);
-            string[] subFoldersArray = creationDate.ToString("yyyy.MM.dd").Split('.');
+            string[] subFoldersArray = creationDate.ToString("yyyy.MMMM.dd").Split('.');
             string subFolders = Path.Combine(subFoldersArray);
             return Path.Combine(targetFolder, subFolders, fileExtension, fileName);
         }

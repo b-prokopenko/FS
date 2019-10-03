@@ -2,6 +2,8 @@
 {
     public interface ISortService
     {
-        void Sort(string sourceFolder, string targetFolder);
+        int Total { get; }
+        int Ready { get; }
+        void Sort(ISortParams sortParams);
     }
 }

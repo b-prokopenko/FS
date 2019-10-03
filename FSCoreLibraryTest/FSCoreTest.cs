@@ -14,7 +14,6 @@ namespace FSCoreLibraryTest
             var sourceFolder = data.SourcesFolder;
             var files = data.FilesInSourceFolder;
             var targetFolder = Path.Combine(data.WorkingFolder, "targets");
-            FSCoreLibrary.FSCore.Service.Sort(sourceFolder, targetFolder);
             var sortedFiles = Directory.GetFiles(targetFolder, "*", SearchOption.AllDirectories);
             foreach (var file in sortedFiles)
             {
