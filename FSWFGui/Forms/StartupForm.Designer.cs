@@ -43,6 +43,7 @@
             this.SourceSelector.Size = new System.Drawing.Size(179, 24);
             this.SourceSelector.TabIndex = 0;
             this.SourceSelector.textBox.Text = "Source folder";
+            this.SourceSelector.textBox.TextChanged += this.SourceFolderSelected;
             // 
             // TargetSelector
             // 
@@ -54,6 +55,7 @@
             this.TargetSelector.Size = new System.Drawing.Size(179, 24);
             this.TargetSelector.TabIndex = 1;
             this.TargetSelector.textBox.Text = "Target folder";
+            this.TargetSelector.textBox.TextChanged += this.TargetFolderSelected;
             // 
             // StartButton
             // 
@@ -66,6 +68,7 @@
             this.StartButton.TabIndex = 2;
             this.StartButton.Text = "Sort";
             this.StartButton.UseVisualStyleBackColor = true;
+            this.StartButton.Click += new System.EventHandler(this.StartButtonClick);
             // 
             // StartupForm
             // 

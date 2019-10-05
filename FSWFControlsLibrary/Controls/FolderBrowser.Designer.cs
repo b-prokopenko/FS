@@ -46,7 +46,6 @@
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(131, 24);
             this.textBox.TabIndex = 1;
-            this.textBox.Text = "Path";
             this.textBox.WordWrap = false;
             // 
             // fsButton
