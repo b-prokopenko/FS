@@ -28,13 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.folderBrowser1 = new FSWFControlsLibrary.Controls.FolderBrowser();
+            this.SuspendLayout();
+            // 
+            // folderBrowser1
+            // 
+            this.folderBrowser1.BackColor = System.Drawing.Color.Transparent;
+            this.folderBrowser1.Location = new System.Drawing.Point(12, 12);
+            this.folderBrowser1.Name = "folderBrowser1";
+            this.folderBrowser1.Size = new System.Drawing.Size(167, 24);
+            this.folderBrowser1.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.folderBrowser1);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private FSWFControlsLibrary.Controls.FolderBrowser folderBrowser1;
     }
 }
 

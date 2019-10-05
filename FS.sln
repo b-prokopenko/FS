@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSCoreLibrary", "FSCoreLibrary\FSCoreLibrary.csproj", "{4AA79785-97DE-4DBA-88F3-AE864FB688E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSWFGui", "FSWFGui\FSWFGui.csproj", "{DC4CCA23-E185-49DF-96F8-CE995BAE3BA1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4081D6CE-C2D0-4168-8CD8-3557157216D8} = {4081D6CE-C2D0-4168-8CD8-3557157216D8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSGuiTests", "FSGuiTests\FSGuiTests.csproj", "{A3EFF091-099C-48EA-9132-661322B0848B}"
 EndProject
@@ -13,6 +16,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSCoreLibraryTests", "FSCor
 	ProjectSection(ProjectDependencies) = postProject
 		{4AA79785-97DE-4DBA-88F3-AE864FB688E7} = {4AA79785-97DE-4DBA-88F3-AE864FB688E7}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FSWFControlsLibrary", "FSWFControlsLibrary\FSWFControlsLibrary.csproj", "{4081D6CE-C2D0-4168-8CD8-3557157216D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,6 +41,10 @@ Global
 		{04BF00E0-9FDD-4F9E-85BA-74A81E0A8BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{04BF00E0-9FDD-4F9E-85BA-74A81E0A8BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{04BF00E0-9FDD-4F9E-85BA-74A81E0A8BE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4081D6CE-C2D0-4168-8CD8-3557157216D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4081D6CE-C2D0-4168-8CD8-3557157216D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4081D6CE-C2D0-4168-8CD8-3557157216D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4081D6CE-C2D0-4168-8CD8-3557157216D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
