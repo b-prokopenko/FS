@@ -2,26 +2,40 @@
 using FSCoreLibrary.Interfaces;
 using FSCoreLibrary;
 using System.Windows.Forms;
+using System.Threading.Tasks;
+using System.ComponentModel;
+using System;
 
 namespace FSWFGui
 {
     class AppContext : ApplicationContext
     {
+        private BackgroundWorker worker;
         ISortService Service;
         StartupForm Startup;
         ProgressForm Progress;
+        ISortParams Params;
         public AppContext()
         {
             Service = FSCore.Service;
             Startup = new StartupForm();
-            Progress = new ProgressForm();
-            Startup.ParamsReady += SortFiles;
+            Startup.ParamsReady += SortFilesAsync;
             MainForm = Startup;
         }
 
-        private void SortFiles(object sender, ISortParams e)
+        private void SortFilesAsync(object sender, ISortParams e)
         {
-            Service.Sort(e);
+            Params = e;
+            Progress = new ProgressForm(Service, e);
+
+            MainForm.Hide();
+            Progress.Show();
+            Progress.gogog();
+
+            //Task.Run(()=> {
+            //    Service.Sort(Params);
+            //});
+            //worker.RunWorkerAsync();
         }
     }
 }

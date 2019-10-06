@@ -25,7 +25,7 @@ namespace FSCoreLibrary.Services
                 InProgress = Path.GetFileName(sourceFiles[i]);
                 targetFiles[i] = _pathService.BuildPath(sortParams.TargetFolder, sourceFiles[i]);
                 _fileService.Copy(sourceFiles[i], targetFiles[i]);
-                Ready++;
+                Ready = i;
             }
         }
 
