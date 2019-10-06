@@ -1,6 +1,7 @@
 ﻿using FSCoreLibrary.Interfaces;
 using System;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FSWFGui.Forms
@@ -14,37 +15,39 @@ namespace FSWFGui.Forms
             InitializeComponent();
             Service = service;
             Params = p;
-            ReadyTotal.Text = $"{progressBar.Value}/{progressBar.Maximum}";
-
         }
 
-        private void HandleReady(object sender, int e)
+        public void Start()
         {
-            backgroundWorker.ReportProgress(e);
-        }
-
-        public void gogog()
-        {
-            int i = 1;
-            backgroundWorker.WorkerReportsProgress = true;
-            backgroundWorker.RunWorkerAsync(i);
-            while (backgroundWorker.IsBusy)
-            {
-                Thread.Sleep(3);
-                backgroundWorker.ReportProgress(Service.Ready);
-            }
-
+            Service.PrepareTasks(Params);
+            backgroundWorker.RunWorkerAsync();
         }
 
         private void BackgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            Service.Sort(Params);
+            int total = Service.Tasks.Count;
+            for (int i = 0; i < total; i++)
+            {
+                if (backgroundWorker.CancellationPending)
+                {
+                    backgroundWorker.ReportProgress(0);
+                    backgroundWorker.CancelAsync();
+                }
+                Service.Tasks[i].Start();
+                int readyPercentage = i * total / 100;
+                backgroundWorker.ReportProgress(readyPercentage);
+            }
         }
 
         private void BackgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
             progressBar.Value = e.ProgressPercentage;
             progressBar.Update();
+        }
+
+        private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("Work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

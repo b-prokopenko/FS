@@ -2,15 +2,11 @@
 using FSCoreLibrary.Interfaces;
 using FSCoreLibrary;
 using System.Windows.Forms;
-using System.Threading.Tasks;
-using System.ComponentModel;
-using System;
 
 namespace FSWFGui
 {
     class AppContext : ApplicationContext
     {
-        private BackgroundWorker worker;
         ISortService Service;
         StartupForm Startup;
         ProgressForm Progress;
@@ -30,7 +26,7 @@ namespace FSWFGui
 
             MainForm.Hide();
             Progress.Show();
-            Progress.gogog();
+            Progress.Start();
 
             //Task.Run(()=> {
             //    Service.Sort(Params);

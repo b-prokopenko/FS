@@ -1,12 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FSCoreLibrary.Interfaces
 {
     public interface ISortService
     {
-        int Total { get; }
-        int Ready { get; }
-        string InProgress { get; }
         void Sort(ISortParams sortParams);
+        IList<Task> Tasks { get; }
+        void PrepareTasks(ISortParams sortParams);
     }
 }
