@@ -20,6 +20,7 @@ namespace FSWFGui.Forms
         public void Start()
         {
             Service.PrepareTasks(Params);
+            progressBar.Maximum = Service.Tasks.Count;
             backgroundWorker.RunWorkerAsync();
         }
 
@@ -34,7 +35,8 @@ namespace FSWFGui.Forms
                     backgroundWorker.CancelAsync();
                 }
                 Service.Tasks[i].Start();
-                int readyPercentage = i * total / 100;
+                Service.Tasks[i].Wait();
+                int readyPercentage = i;
                 backgroundWorker.ReportProgress(readyPercentage);
             }
         }
@@ -43,11 +45,17 @@ namespace FSWFGui.Forms
         {
             progressBar.Value = e.ProgressPercentage;
             progressBar.Update();
+            UpdateReadyTotalField();
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             MessageBox.Show("Work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void UpdateReadyTotalField()
+        {
+            ReadyTotal.Text = $"Copied {progressBar.Value} of {progressBar.Maximum}";
         }
     }
 }
