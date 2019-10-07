@@ -4,7 +4,7 @@
     {
         private void RegisterEvents()
         {
-            Startup.ParamsReady += HideStartupForm;
+            Startup.ParamsReady += CloseStartupForm;
             Startup.ParamsReady += PrepareBackgroundWork;
             Startup.ParamsReady += UpdateProgressForm;
             Startup.ParamsReady += ShowProgressForm;

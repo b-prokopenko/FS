@@ -7,9 +7,9 @@ namespace FSWFGui
 {
     partial class AppContext
     {
-        private void HideStartupForm(object sender, ISortParams e)
+        private void CloseStartupForm(object sender, ISortParams e)
         {
-            Startup.Hide();
+            Startup.Close();
         }
 
         private void PrepareBackgroundWork(object sender, ISortParams e)
@@ -65,7 +65,8 @@ namespace FSWFGui
             if (e.Cancelled)
                 result = MessageBox.Show("Operation has been canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
-                result = MessageBox.Show("The work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                result = MessageBox.Show("The work has been completed.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             if (result.Equals(DialogResult.OK))
                 Progress.Close();
         }
@@ -78,7 +79,7 @@ namespace FSWFGui
 
         private void OnProgressFormClosed(object sender, FormClosedEventArgs e)
         {
-            Startup.Show();
+            Application.Exit();
         }
     }
 }

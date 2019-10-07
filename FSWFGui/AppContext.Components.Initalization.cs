@@ -18,8 +18,7 @@ namespace FSWFGui
             ConfigureComponents();
             RegisterEvents();
 
-            MainForm = Startup;
-            
+            Startup.Show();
         }
         private void InitializeComponents()
         {
