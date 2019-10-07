@@ -4,8 +4,8 @@
     {
         private void ConfigureComponents()
         {
-            Worker.WorkerReportsProgress = true;
-            Worker.WorkerSupportsCancellation = true;
+            BackgroundWorker.WorkerReportsProgress = true;
+            BackgroundWorker.WorkerSupportsCancellation = true;
         }
     }
 }

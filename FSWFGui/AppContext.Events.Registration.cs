@@ -4,18 +4,18 @@
     {
         private void RegisterEvents()
         {
-            Startup.ParamsReady += CloseStartupForm;
-            Startup.ParamsReady += PrepareBackgroundWork;
-            Startup.ParamsReady += UpdateProgressForm;
-            Startup.ParamsReady += ShowProgressForm;
-            Startup.ParamsReady += RunBackgroundWorker;
+            StartupForm.ParamsReady += CloseStartupForm;
+            StartupForm.ParamsReady += PrepareBackgroundWork;
+            StartupForm.ParamsReady += UpdateProgressForm;
+            StartupForm.ParamsReady += ShowProgressForm;
+            StartupForm.ParamsReady += RunBackgroundWorker;
 
-            Worker.DoWork += OnBackgroundWork;
-            Worker.ProgressChanged += OnBackgroundProgressChanged;
-            Worker.RunWorkerCompleted += OnBackgroundWorkCompleted;
+            BackgroundWorker.DoWork += OnBackgroundWork;
+            BackgroundWorker.ProgressChanged += OnBackgroundProgressChanged;
+            BackgroundWorker.RunWorkerCompleted += OnBackgroundWorkCompleted;
 
-            Progress.btnCancel.Click += OnProgressCancel;
-            Progress.FormClosed += OnProgressFormClosed;
+            ProgressForm.btnCancel.Click += OnProgressCancel;
+            ProgressForm.FormClosed += OnProgressFormClosed;
         }
 
     }

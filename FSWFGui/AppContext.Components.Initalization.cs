@@ -10,23 +10,23 @@ namespace FSWFGui
     partial class AppContext : ApplicationContext
     {
         ISortService Service;
-        StartupForm Startup;
-        ProgressForm Progress;
-        BackgroundWorker Worker;
+        StartupForm StartupForm;
+        ProgressForm ProgressForm;
+        BackgroundWorker BackgroundWorker;
         public AppContext()
         {
             InitializeComponents();
             ConfigureComponents();
             RegisterEvents();
 
-            Startup.Show();
+            StartupForm.Show();
         }
         private void InitializeComponents()
         {
             Service = FSCore.Service;
-            Startup = new StartupForm();
-            Progress = new ProgressForm();
-            Worker = new BackgroundWorker();
+            StartupForm = new StartupForm();
+            ProgressForm = new ProgressForm();
+            BackgroundWorker = new BackgroundWorker();
         }
     }
 }

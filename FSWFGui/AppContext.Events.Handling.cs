@@ -9,7 +9,7 @@ namespace FSWFGui
     {
         private void CloseStartupForm(object sender, ISortParams e)
         {
-            Startup.Close();
+            StartupForm.Close();
         }
 
         private void PrepareBackgroundWork(object sender, ISortParams e)
@@ -19,19 +19,19 @@ namespace FSWFGui
 
         private void UpdateProgressForm(object sender, ISortParams e)
         {
-            Progress.progressBar.Maximum = Service.Tasks.Count;
-            Progress.progressBar.Update();
-            Progress.UpdateReadyTotalField();
+            ProgressForm.progressBar.Maximum = Service.Tasks.Count;
+            ProgressForm.progressBar.Update();
+            ProgressForm.UpdateReadyTotalField();
         }
 
         private void ShowProgressForm(object sender, ISortParams e)
         {
-            Progress.Show();
+            ProgressForm.Show();
         }
 
         private void RunBackgroundWorker(object sender, ISortParams e)
         {
-            Worker.RunWorkerAsync();
+            BackgroundWorker.RunWorkerAsync();
         }
 
         private void OnBackgroundWork(object sender, DoWorkEventArgs e)
@@ -39,24 +39,24 @@ namespace FSWFGui
             int total = Service.Tasks.Count;
             for (int i = 0; i < total; i++)
             {
-                if (Worker.CancellationPending)
+                if (BackgroundWorker.CancellationPending)
                 {
                     e.Cancel = true;
-                    Worker.ReportProgress(i);
+                    BackgroundWorker.ReportProgress(i);
                     break;
                 }
                 Service.Tasks[i].Start();
                 Service.Tasks[i].Wait();
                 int filesCopied = i + 1;
-                Worker.ReportProgress(filesCopied);
+                BackgroundWorker.ReportProgress(filesCopied);
             }
         }
 
         private void OnBackgroundProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Progress.progressBar.Value = e.ProgressPercentage;
-            Progress.progressBar.Update();
-            Progress.UpdateReadyTotalField();
+            ProgressForm.progressBar.Value = e.ProgressPercentage;
+            ProgressForm.progressBar.Update();
+            ProgressForm.UpdateReadyTotalField();
         }
 
         private void OnBackgroundWorkCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -68,13 +68,13 @@ namespace FSWFGui
                 result = MessageBox.Show("The work has been completed.", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             if (result.Equals(DialogResult.OK))
-                Progress.Close();
+                ProgressForm.Close();
         }
 
         private void OnProgressCancel(object sender, EventArgs e)
         {
-            if (Worker.WorkerSupportsCancellation)
-                Worker.CancelAsync();
+            if (BackgroundWorker.WorkerSupportsCancellation)
+                BackgroundWorker.CancelAsync();
         }
 
         private void OnProgressFormClosed(object sender, FormClosedEventArgs e)
