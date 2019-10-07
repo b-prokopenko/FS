@@ -30,7 +30,6 @@
         {
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.ReadyTotal = new System.Windows.Forms.Label();
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -54,14 +53,6 @@
             this.ReadyTotal.Text = "0/0";
             this.ReadyTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // backgroundWorker
-            // 
-            this.backgroundWorker.WorkerReportsProgress = true;
-            this.backgroundWorker.WorkerSupportsCancellation = true;
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.BackgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.BackgroundWorker_ProgressChanged);
-            this.backgroundWorker.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.BackgroundWorker_RunWorkerCompleted);
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -71,7 +62,6 @@
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // ProgressForm
             // 
@@ -91,11 +81,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label ReadyTotal;
         private System.Windows.Forms.Label InProgress;
-        private System.ComponentModel.BackgroundWorker backgroundWorker;
-        private System.Windows.Forms.Button btnCancel;
+        public System.Windows.Forms.ProgressBar progressBar;
+        public System.Windows.Forms.Button btnCancel;
     }
 }
