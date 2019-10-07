@@ -1,7 +1,7 @@
-﻿using FSCoreLibrary.Interfaces;
+﻿using System;
 using FSWFGui.Entities;
-using System;
 using System.Windows.Forms;
+using FSCoreLibrary.Interfaces;
 
 namespace FSWFGui.Forms
 {
