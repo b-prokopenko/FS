@@ -9,7 +9,7 @@ namespace FSWFGui
     {
         private void CloseStartupForm(object sender, ISortParams e)
         {
-            StartupForm.Close();
+            StartupForm.Hide();
         }
 
         private void PrepareBackgroundWork(object sender, ISortParams e)
@@ -77,7 +77,7 @@ namespace FSWFGui
                 BackgroundWorker.CancelAsync();
         }
 
-        private void OnFormClosed(object sender, FormClosedEventArgs e)
+        private void OnProgressFormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
