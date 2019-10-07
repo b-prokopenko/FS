@@ -9,13 +9,14 @@
             StartupForm.ParamsReady += UpdateProgressForm;
             StartupForm.ParamsReady += ShowProgressForm;
             StartupForm.ParamsReady += RunBackgroundWorker;
+            StartupForm.FormClosed += OnFormClosed;
 
             BackgroundWorker.DoWork += OnBackgroundWork;
             BackgroundWorker.ProgressChanged += OnBackgroundProgressChanged;
             BackgroundWorker.RunWorkerCompleted += OnBackgroundWorkCompleted;
 
             ProgressForm.btnCancel.Click += OnProgressCancel;
-            ProgressForm.FormClosed += OnProgressFormClosed;
+            ProgressForm.FormClosed += OnFormClosed;
         }
 
     }

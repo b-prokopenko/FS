@@ -77,7 +77,7 @@ namespace FSWFGui
                 BackgroundWorker.CancelAsync();
         }
 
-        private void OnProgressFormClosed(object sender, FormClosedEventArgs e)
+        private void OnFormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
