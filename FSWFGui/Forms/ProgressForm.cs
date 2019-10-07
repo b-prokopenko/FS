@@ -21,6 +21,7 @@ namespace FSWFGui.Forms
         {
             Service.PrepareTasks(Params);
             progressBar.Maximum = Service.Tasks.Count;
+            UpdateReadyTotalField();
             backgroundWorker.RunWorkerAsync();
         }
 
@@ -31,13 +32,14 @@ namespace FSWFGui.Forms
             {
                 if (backgroundWorker.CancellationPending)
                 {
-                    backgroundWorker.ReportProgress(0);
-                    backgroundWorker.CancelAsync();
+                    e.Cancel = true;
+                    backgroundWorker.ReportProgress(i);
+                    break;
                 }
                 Service.Tasks[i].Start();
                 Service.Tasks[i].Wait();
-                int readyPercentage = i;
-                backgroundWorker.ReportProgress(readyPercentage);
+                int filesCopied = i + 1;
+                backgroundWorker.ReportProgress(filesCopied);
             }
         }
 
@@ -46,16 +48,31 @@ namespace FSWFGui.Forms
             progressBar.Value = e.ProgressPercentage;
             progressBar.Update();
             UpdateReadyTotalField();
+            UpdateReadyTotalField();
         }
 
         private void BackgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("Work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult result;
+            if (e.Cancelled)
+                result = MessageBox.Show("Operation was canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            else
+                result = MessageBox.Show("The work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (result.Equals(DialogResult.OK))
+                this.Close();
         }
 
         private void UpdateReadyTotalField()
         {
             ReadyTotal.Text = $"Copied {progressBar.Value} of {progressBar.Maximum}";
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker.WorkerSupportsCancellation == true)
+            {
+                backgroundWorker.CancelAsync();
+            }
         }
     }
 }

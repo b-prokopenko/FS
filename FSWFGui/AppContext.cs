@@ -2,6 +2,7 @@
 using FSCoreLibrary.Interfaces;
 using FSCoreLibrary;
 using System.Windows.Forms;
+using System;
 
 namespace FSWFGui
 {
@@ -24,6 +25,8 @@ namespace FSWFGui
             Params = e;
             Progress = new ProgressForm(Service, e);
 
+            Progress.FormClosed += OpenStartupForm;
+
             MainForm.Hide();
             Progress.Show();
             Progress.Start();
@@ -32,6 +35,11 @@ namespace FSWFGui
             //    Service.Sort(Params);
             //});
             //worker.RunWorkerAsync();
+        }
+
+        private void OpenStartupForm(object sender, FormClosedEventArgs e)
+        {
+            Startup.Show();
         }
     }
 }
