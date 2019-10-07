@@ -63,7 +63,7 @@ namespace FSWFGui
         {
             DialogResult result;
             if (e.Cancelled)
-                result = MessageBox.Show("Operation was canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                result = MessageBox.Show("Operation has been canceled.", "Canceled", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 result = MessageBox.Show("The work has been completed", "Complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (result.Equals(DialogResult.OK))
